@@ -1,0 +1,14 @@
+<mat-expansion-panel class = foodCard>
+  <mat-expansion-panel-header>
+    <mat-panel-title> <div> {{item.name}}&nbsp;</div> <div class="sub">{{ item.difficulty}}</div> </mat-panel-title>
+    <mat-panel-description>{{ item.desc }}</mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-chip-list>
+    <mat-chip *ngFor="let tag of item.tags"> {{ tag }}</mat-chip>
+  </mat-chip-list>
+  <mat-list>
+    <mat-list-item *ngFor="let ing of item.ingredients; index as n"> {{ n + 1 }}. {{ ing }}</mat-list-item>
+  </mat-list>
+  <button mat-raised-button (click)="goToLink(item.link)">Open Recipe</button>
+</mat-expansion-panel>
+
