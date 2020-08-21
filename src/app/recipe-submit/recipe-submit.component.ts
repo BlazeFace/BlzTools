@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {COMMA, ENTER} from "@angular/cdk/keycodes";
-import {MatChipInputEvent} from "@angular/material/chips";
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {MatChipInputEvent} from '@angular/material/chips';
 
 @Component({
   selector: 'app-recipe-submit',
@@ -10,10 +10,27 @@ import {MatChipInputEvent} from "@angular/material/chips";
 export class RecipeSubmitComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   constructor() { }
-  ingr = ["Dinner"];
+  ingr = ['Dinner'];
   selectable = true;
   removable = true;
   addOnBlur = true;
+
+  formatLabel(value: number) {
+    let retVal: string;
+    switch (value){
+     case 0:
+       retVal = 'Easy';
+       break;
+     case 1:
+       retVal = 'Medium';
+       break;
+     case 2:
+       retVal = 'Hard';
+       break;
+   }
+    return retVal;
+  }
+
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;

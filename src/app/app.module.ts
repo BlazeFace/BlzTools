@@ -18,6 +18,8 @@ import {MatChipsModule} from "@angular/material/chips";
 import { RecipeSubmitComponent } from './recipe-submit/recipe-submit.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import {MatInputModule} from "@angular/material/input";
     MatChipsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatGridListModule,
+    MatSliderModule,
 
   ],
   providers: [],

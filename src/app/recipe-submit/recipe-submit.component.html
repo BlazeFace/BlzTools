@@ -1,32 +1,51 @@
-<form class="example-form">
-  <mat-form-field>
-    <mat-label>Recipe Name</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <br/>
-  <mat-form-field>
-    <mat-label>Link</mat-label>
-    <input matInput>
-  </mat-form-field>
-<br/>
-  <mat-form-field>
-    <mat-label>Description</mat-label>
-    <input matInput>
-  </mat-form-field>
-<br/>
-  <mat-form-field class="example-chip-list">
-    <mat-chip-list #chipList aria-label="Fruit selection">
-      <mat-chip *ngFor="let fruit of ingr" [selectable]="selectable"
-                [removable]="removable" (removed)="remove(fruit)">
-        {{fruit}}
-        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-      </mat-chip>
-      <input placeholder="New fruit..."
-             [matChipInputFor]="chipList"
-             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-             [matChipInputAddOnBlur]="addOnBlur"
-             (matChipInputTokenEnd)="add($event)">
-    </mat-chip-list>
-  </mat-form-field>
+<mat-grid-list cols="3" rowHeight="100%">
+  <mat-grid-tile class="sidebar"></mat-grid-tile>
+  <mat-grid-tile>
+    <form class="example-form">
+      <mat-form-field>
+        <mat-label>Recipe Name</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br/>
+      <mat-form-field>
+        <mat-label>Link</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br/>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <br/>
 
-</form>
+      <mat-form-field>
+        <mat-label>Ingredients</mat-label>
+        <input matInput placeholder="Enter in a comma separated list">
+      </mat-form-field>
+
+      <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="3"
+        min="0"
+        max="2"
+      (input)=""></mat-slider>
+
+      <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let fruit of ingr" [selectable]="selectable"
+                    [removable]="removable" (removed)="remove(fruit)">
+            {{fruit}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="Tags"
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile class="sidebar"></mat-grid-tile>
+</mat-grid-list>

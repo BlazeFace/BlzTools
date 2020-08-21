@@ -6,3 +6,28 @@
 .sub {
   color: gray;
 }
+
+.easy-title {
+  text-align: center;
+  font-size: 40px;
+  color: darkgreen;
+}
+
+.med-title {
+  text-align: center;
+  font-size: 40px;
+  color: darkgoldenrod;
+}
+
+.hard-title {
+  text-align: center;
+  font-size: 40px;
+  color: crimson;
+}
+.rec-content {
+  position: relative;
+}
+
+:host {
+  display: block;
+}
